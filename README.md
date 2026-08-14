@@ -1,3 +1,33 @@
+<div align="center">
+
+# ⚡ MZAZI BAILEYS
+
+### Custom fork of [WhiskeySockets/Baileys](https://github.com/WhiskeySockets/Baileys) — by MZAZI TECH
+
+![Fork](https://img.shields.io/badge/Base-WhiskeySockets%2FBaileys-blue)
+![Pairing](https://img.shields.io/badge/Pairing%20Code-MZAZIBOT-25D366)
+![Buttons](https://img.shields.io/badge/Buttons-Enabled-3b82f6)
+![Banner](https://img.shields.io/badge/Console-Rainbow%20Banner-ff69b4)
+
+Install straight from GitHub (no build step — `lib/` is committed):
+
+```bash
+npm install https://github.com/mzazi89/baileys/archive/refs/heads/master.tar.gz
+```
+
+</div>
+
+### 🔧 Fork changes
+
+- **`MZAZIBOT` pairing code** — `requestPairingCode()` defaults to the branded 8-char code
+  (WhatsApp accepts custom codes when pairing). Override via the `MZAZI_PAIRING_CODE` env var.
+- **Button support** — `gifted-btns` dependency for interactive button messages.
+- **Rainbow console banner** — "MZAZI BAILEYS" prints on load (disable with `MZAZI_BANNER=0`).
+
+> Everything below is the upstream WhiskeySockets/Baileys documentation.
+
+---
+
 <h1 align='center'><img alt="Baileys logo" src="https://raw.githubusercontent.com/WhiskeySockets/Baileys/refs/heads/master/Media/logo.png" height="75"/></h1>
 
 <div align='center'>Baileys is a WebSockets-based TypeScript library for interacting with the WhatsApp Web API.</div>
