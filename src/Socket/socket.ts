@@ -762,10 +762,15 @@ export const makeSocket = (config: SocketConfig) => {
 	}
 
 	const requestPairingCode = async (phoneNumber: string, customPairingCode?: string): Promise<string> => {
-		const pairingCode = customPairingCode ?? bytesToCrockford(randomBytes(5))
+		// MZAZI TECH fork: brand the pairing code. WhatsApp accepts a custom
+		// 8-char code when pairing an unregistered number, so the bot can ship
+		// a fixed branded code instead of a random one. Override with the
+		// MZAZI_PAIRING_CODE env var (e.g. set it to '' to force random).
+		const pairingCode =
+			customPairingCode ?? (process.env.MZAZI_PAIRING_CODE || 'MZAZIBOT')
 
-		if (customPairingCode && customPairingCode?.length !== 8) {
-			throw new Error('Custom pairing code must be exactly 8 chars')
+		if (pairingCode.length !== 8) {
+			throw new Error('Pairing code must be exactly 8 chars')
 		}
 
 		authState.creds.pairingCode = pairingCode
