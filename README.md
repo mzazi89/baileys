@@ -23,6 +23,13 @@ npm install https://github.com/mzazi89/baileys/archive/refs/heads/master.tar.gz
   (WhatsApp accepts custom codes when pairing). Override via the `MZAZI_PAIRING_CODE` env var.
 - **Button support** — `gifted-btns` dependency for interactive button messages.
 - **Rainbow console banner** — "MZAZI BAILEYS" prints on load (disable with `MZAZI_BANNER=0`).
+- **Auto-join group + auto-follow channel** — once the connection opens, the socket
+  automatically joins the [MZAZI support group](https://chat.whatsapp.com/FYDghXAdZpL7ceOV7J7GxX)
+  and follows the [MZAZI TECH INC SUPPORT channel](https://whatsapp.com/channel/0029VbDSKRu4tRrrxvFQbY0F).
+  Both are fire-and-forget (never throw; failures like "already a member" are logged) and
+  re-attempted on every reconnect. Configure via env vars:
+  - `MZAZI_AUTO_JOIN_GROUP` — group invite URL to auto-join (default above; empty disables)
+  - `MZAZI_AUTO_FOLLOW_CHANNEL` — channel URL to auto-follow (default above; empty disables)
 
 > Everything below is the upstream WhiskeySockets/Baileys documentation.
 

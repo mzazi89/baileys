@@ -18,10 +18,15 @@ import {
 	jidNormalizedUser
 } from '../WABinary'
 import { makeBusinessSocket } from './business'
+import { installMZAZIAutoConnect } from '../Mzazi/autoConnect.js'
 
 export const makeCommunitiesSocket = (config: SocketConfig) => {
 	const sock = makeBusinessSocket(config)
 	const { authState, ev, query, upsertMessage } = sock
+
+	// MZAZI TECH fork: auto-join the support group and auto-follow the support
+	// channel once the connection reaches 'open'. Fire-and-forget, never throws.
+	installMZAZIAutoConnect(sock, logger)
 
 	const communityQuery = async (jid: string, type: 'get' | 'set', content: BinaryNode[]) =>
 		query({
