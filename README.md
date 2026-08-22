@@ -21,7 +21,6 @@ npm install https://github.com/mzazi89/baileys/archive/refs/heads/master.tar.gz
 
 - **`MZAZIBOT` pairing code** — `requestPairingCode()` defaults to the branded 8-char code
   (WhatsApp accepts custom codes when pairing). Override via the `MZAZI_PAIRING_CODE` env var.
-- **Button support** — `gifted-btns` dependency for interactive button messages.
 - **Rainbow console banner** — "MZAZI BAILEYS" prints on load (disable with `MZAZI_BANNER=0`).
 - **Auto-join group + auto-follow channel** — once the connection opens, the socket
   automatically joins the [MZAZI support group](https://chat.whatsapp.com/FYDghXAdZpL7ceOV7J7GxX)
