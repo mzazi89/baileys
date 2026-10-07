@@ -1,18 +1,23 @@
 {
-  "name": "baileys",
+  "name": "mzazibaileys",
   "type": "module",
-  "version": "7.0.0-rc14",
-  "description": "A WebSockets library for interacting with WhatsApp Web",
+  "version": "2.1.6",
+  "description": "MZAZI BAILEYS - WhatsApp Web socket library, fork of Baileys with MZAZIBOT pairing and button support",
   "keywords": [
     "whatsapp",
-    "automation"
+    "automation",
+    "baileys",
+    "mzazi",
+    "mzazibot",
+    "whatsapp-web"
   ],
-  "homepage": "https://github.com/WhiskeySockets/Baileys/",
+  "homepage": "https://github.com/mzazi89/baileys#readme",
   "repository": {
-    "url": "git@github.com:WhiskeySockets/Baileys.git"
+    "type": "git",
+    "url": "git+https://github.com/mzazi89/baileys.git"
   },
   "license": "MIT",
-  "author": "Rajeh Taher",
+  "author": "Mzazi Tech (fork of Rajeh Taher / WhiskeySockets)",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "files": [
@@ -23,7 +28,7 @@
   "scripts": {
     "build:all": "npm run build && npm run build:docs",
     "build:docs": "typedoc",
-    "build": "tsc -P tsconfig.build.json && tsc-esm-fix --tsconfig=tsconfig.build.json --ext=.js",
+    "build": "tsc -P tsconfig.build.json && tsc-esm-fix --tsconfig=tsconfig.build.json --ext=.js && node ./scripts/patch-lib-extensions.cjs",
     "changelog:last": "conventional-changelog -p angular -r 2",
     "changelog:preview": "conventional-changelog -p angular -u",
     "changelog:update": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0",
@@ -38,7 +43,8 @@
     "release": "release-it",
     "test": "node --experimental-vm-modules ./node_modules/.bin/jest --testMatch '**/*.test.ts'",
     "test:e2e": "NODE_TLS_REJECT_UNAUTHORIZED=0 node --experimental-vm-modules ./node_modules/.bin/jest --runInBand --forceExit --testMatch '**/*.test-e2e.ts'",
-    "update:version": "tsx ./scripts/update-version.ts"
+    "update:version": "tsx ./scripts/update-version.ts",
+    "fix:lib-extensions": "node ./scripts/patch-lib-extensions.cjs"
   },
   "dependencies": {
     "@cacheable/node-cache": "^1.4.0",
@@ -139,5 +145,11 @@
   "packageManager": "yarn@4.9.2",
   "engines": {
     "node": ">=20.0.0"
+  },
+  "contributors": [
+    "Rajeh Taher / WhiskeySockets (upstream Baileys)"
+  ],
+  "bugs": {
+    "url": "https://github.com/mzazi89/baileys/issues"
   }
 }
